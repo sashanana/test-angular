@@ -1,0 +1,35 @@
+@mixin breakpoint($width) {
+   
+	@media screen and (min-width: $width) {
+			@content;
+	}
+	
+}
+// I also have a respond-max mixin, that does what you might expect
+@mixin breakpoint-max($width) {
+	
+  @media screen and (max-width: $width) {
+			@content;
+	}
+	
+}
+
+@mixin break-orientation($orientation){
+	@media screen and (orientation: $orientation) {
+		@content;
+	}
+}
+
+@mixin breakpoint-hide($width,$display:block){
+	@include display($display);
+	@include breakpoint($width){
+		display: none;
+	}
+}
+
+@mixin breakpoint-show($width,$display:block){
+	display: none;
+	@include breakpoint($width){
+		@include display($display);
+	}
+}

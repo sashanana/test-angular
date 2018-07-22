@@ -17,7 +17,7 @@
       "tsconfig": "tsconfig.app.json",
       "prefix": "app",
       "styles": [
-        "styles.scss"
+        "sass/styles.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",

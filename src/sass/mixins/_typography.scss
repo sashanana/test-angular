@@ -1,0 +1,29 @@
+@mixin font-roboto-condensed {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+@mixin font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+$browser-context: 14;
+/*
+ * Font size 
+ * $size in px
+ */
+@mixin font-size($size) {
+  font-size: em($size);
+}
+/*
+ * $property e.g margin, padding
+ * $size in px
+ */
+@mixin unit-sizes($property, $size1: null, $size2: null, $size3: null, $size4: null) {
+  #{$property}: em($size1) em($size2) em($size3) em($size4);
+  
+}
+
+@function em($px, $context: $browser-context) {
+  @if ($px == auto) { @return auto; }
+  @if ($px == null) { @return null; }
+  @return #{$px / $context}em;
+}
