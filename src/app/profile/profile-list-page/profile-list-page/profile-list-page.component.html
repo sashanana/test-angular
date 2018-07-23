@@ -1,7 +1,12 @@
 <div class="profile-list-page">
 
-  <div *ngIf="profiles$ | async as profiles; else loading">
-    <app-profiles-table [profiles]="profiles"></app-profiles-table>
+  <div *ngIf="response$ | async as response; else loading" class="py-3">
+    <app-profiles-table [profiles]="response.list"></app-profiles-table>
+    <div class="profile-list-page__pagination">
+      <app-pagination [totalPage]="totalPage" 
+                      [currentPage]="requestParams._page"
+                      (changeEvent)="updatePage($event)"></app-pagination>
+    </div>
   </div>
   
   <ng-template #loading>

@@ -5,7 +5,7 @@ export class ApiRequestOption {
   public body?: {[key: string]: any}|string|null;
   public params?: {[key: string]: any};
   public headers?: {[key: string]: any};
-  public config?: {[key: string]: any};
+  public configs?: {[key: string]: any};
 }
 /* Request object to http client */
 export class ApiRequest {

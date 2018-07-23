@@ -55,7 +55,7 @@ export class ApiService {
 	 * Set HttpRequest init object
 	 */
   private setHttpRequestInit( options: ApiRequestOption ): {[key: string]: any} {
-    const init: {[key: string]: any} = {};
+    let init: {[key: string]: any} = {};
 
     //
     // Params
@@ -89,6 +89,11 @@ export class ApiService {
        headers.append('Content-Type', 'application/json');
     }
     init.headers = headers;
+    //
+    // Config
+    //
+    init = Object.assign(init, options.configs);
+
     return init;
   }
 

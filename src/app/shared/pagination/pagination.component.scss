@@ -1,0 +1,10 @@
+@import '~sass/settings';
+
+.pagination {
+  .page-link {
+    color: $gray;
+    &._active {
+      color: $sunflower;
+    }
+  }
+};
