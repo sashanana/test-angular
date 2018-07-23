@@ -1,0 +1,8 @@
+@import '~sass/settings';
+
+.typeahead-control {
+  input {
+    @include line-input;
+    width: 100%;
+  }
+}

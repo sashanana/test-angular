@@ -16,6 +16,9 @@ export class ProfileService {
    */
   public getProfiles(params: ApiProfilesParameter): Observable<ApiProfilesResponse> {
 
+    // Clean invalid params
+    Object.keys(params).forEach((key) => (params[key] === null || params[key] === '') && delete params[key]);
+
     const configs = {
       observe: 'response'
     };

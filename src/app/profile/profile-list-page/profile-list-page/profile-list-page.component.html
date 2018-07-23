@@ -1,6 +1,9 @@
-<div class="profile-list-page">
+<div class="profile-list-page row">
 
-  <div *ngIf="response$ | async as response; else loading" class="py-3">
+  <app-profile-filter-box (changeEvent)="updateFilter($event)" 
+                          class="col-md-4 mt-3"></app-profile-filter-box>
+  
+  <div *ngIf="response$ | async as response; else loading" class="py-3 col-md-8">
     <app-profiles-table [profiles]="response.list"></app-profiles-table>
     <div class="profile-list-page__pagination">
       <app-pagination [totalPage]="totalPage" 
@@ -10,10 +13,12 @@
   </div>
   
   <ng-template #loading>
-    <div *ngIf="!isApiError; else error" class="d-flex py-5 justify-content-center">
-      <app-spinner></app-spinner>
+    <div class="col-md-8">
+      <div *ngIf="!isApiError; else error" class="d-flex py-5 justify-content-center">
+        <app-spinner></app-spinner>
+      </div>
+      <ng-template #error><app-api-response-message></app-api-response-message></ng-template>
     </div>
-    <ng-template #error><app-api-response-message></app-api-response-message></ng-template>
   </ng-template>
   
 </div>

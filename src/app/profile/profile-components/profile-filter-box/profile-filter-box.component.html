@@ -1,0 +1,26 @@
+<div class="profile-filter-box p-3">
+  <h3>Filter results</h3>
+  <form novalidate [formGroup]="form">
+    <app-typeahead-control label="Search"
+                           [control]="form.get('search')"></app-typeahead-control>
+
+    <div class="form-group">
+      <label for="form-enabled">Enabled</label>
+      <select class="form-control" id="form-enabled" formControlName="enable">
+        <option value="">- Not Applied -</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="form-enabled">Visible</label>
+      <select class="form-control" id="form-visible" formControlName="visible">
+        <option value="">- Not Applied -</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+  </form>
+</div>

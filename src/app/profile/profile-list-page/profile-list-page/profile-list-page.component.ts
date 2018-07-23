@@ -4,8 +4,8 @@ import { Subject } from 'rxjs/Subject';
 import { catchError } from 'rxjs/operators/catchError';
 import { map } from 'rxjs/operators/map';
 import { exhaustMap } from 'rxjs/operators/exhaustMap';
-import { startWith } from 'rxjs/operators/startWith';
 import { ProfileService } from '../../profile.service';
+import { FilterFormValue } from '../../profile-components';
 import { ApiProfilesParameter, ApiProfilesResponse } from '../../models';
 
 @Component({
@@ -34,11 +34,7 @@ export class ProfileListPageComponent implements OnInit {
     this.response$ =
       this.refresh$
       .pipe(
-        startWith(null),
-        exhaustMap(() => {
-          console.log(this.requestParams);
-          return this.getProfilesFromApi(this.requestParams);
-        })
+        exhaustMap(() => this.getProfilesFromApi(this.requestParams))
       );
   }
 
@@ -61,17 +57,24 @@ export class ProfileListPageComponent implements OnInit {
    * Get total page size
    */
   public getTotalPageSize(total: number, limit: number): number {
-    return Math.floor(total / limit);
+    return Math.max(Math.floor(total / limit), 1);
   }
   /*
    * Update page and refresh list
    */
   public updatePage(page: number): void {
-    console.log('page:', page);
     this.requestParams._page = page;
     this.refresh$.next();
   }
-
+  /*
+   * Update page and refresh
+   */
+  public updateFilter(value: FilterFormValue): void {
+    this.requestParams.q = value.search;
+    this.requestParams.is_enabled = value.enable;
+    this.requestParams.is_visible = value.visible;
+    this.refresh$.next();
+  }
   /*** Private ***/
   private handleApiError(): void {
     this.isApiError = true;
