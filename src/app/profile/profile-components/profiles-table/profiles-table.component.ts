@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Profile } from '../../models';
 import { ProfileDetailsDefination } from './view-models';
 
@@ -11,6 +11,7 @@ export class ProfilesTableComponent implements OnInit {
 
   public readonly profileDetailsDefination = ProfileDetailsDefination;
   @Input() profiles: Profile[];
+  @Output() selectedEvent = new EventEmitter<string>();
 
   constructor() { }
 
@@ -38,6 +39,10 @@ export class ProfilesTableComponent implements OnInit {
         }
     }
     return value;
+  }
+
+  public onSelect(id: string): void {
+    this.selectedEvent.next(id);
   }
 
 }

@@ -5,7 +5,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let profile of profiles" class="profiles-table__item">
+    <tr *ngFor="let profile of profiles" class="profiles-table__item" (click)="onSelect(profile.id)">
       <td *ngFor="let detail of profileDetailsDefination" 
           class="profiles-table__detail profiles-table__detail--{{detail.key}}"
           attr.data-title="{{detail.title}}"

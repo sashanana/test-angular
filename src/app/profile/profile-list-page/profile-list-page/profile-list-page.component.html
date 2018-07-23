@@ -4,7 +4,10 @@
                           class="col-md-4 col-lg-3 mt-3"></app-profile-filter-box>
   
   <div *ngIf="response$ | async as response; else loading" class="py-3 col-md-8 col-lg-9">
-    <app-profiles-table [profiles]="response.list"></app-profiles-table>
+    
+    <app-profiles-table [profiles]="response.list"
+                        (selectedEvent)="editProfile($event)"></app-profiles-table>
+    
     <div class="profile-list-page__pagination">
       <app-pagination [totalPage]="totalPage" 
                       [currentPage]="requestParams._page"

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { catchError } from 'rxjs/operators/catchError';
@@ -26,6 +27,7 @@ export class ProfileListPageComponent implements OnInit {
   private refresh$ = new Subject<void>();
 
   constructor(
+    private router: Router,
     private profileService: ProfileService
   ) { }
 
@@ -74,6 +76,9 @@ export class ProfileListPageComponent implements OnInit {
     this.requestParams.is_enabled = value.enable;
     this.requestParams.is_visible = value.visible;
     this.refresh$.next();
+  }
+  public editProfile(id: string): void {
+    this.router.navigate(['/edit',id]);
   }
   /*** Private ***/
   private handleApiError(): void {

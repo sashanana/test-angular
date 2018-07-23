@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProfileEditPageComponent } from './profile-edit-page/profile-edit-page.component';
 
 const ROUTES: Routes = [
-  { path: '', loadChildren: './profile-list-page#ProfileListPageModule', pathMatch: 'full' },
-  { path: 'edit', loadChildren: './profile-edit-page#ProfileEditPageModule' }
+  { path: ':id', component: ProfileEditPageComponent }
 ];
 
 @NgModule({
@@ -14,4 +14,4 @@ const ROUTES: Routes = [
     RouterModule
   ]
 })
-export class ProfileRoutingModule { }
+export class ProfileEditPageRoutingModule { }
