@@ -1,0 +1,61 @@
+@import '~sass/settings';
+
+.profiles-table {
+  thead {
+    display: none; /* Hide for small screen */
+    @include breakpoint($tablet){
+      display: table-header-group;
+    }
+  }
+  &__item {
+    /* Display like card for small screen */
+    @include unit-sizes(padding, 5);
+    @include unit-sizes(margin-bottom, 10);
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    border: 1px solid $smoke;
+    &:hover {
+      background-color: $smoke;
+    }
+    @include breakpoint($tablet){
+      /* Display table row for bigger screen */
+      display: table-row;
+      border: none;
+    }
+  }
+  &__detail {
+    display: block;
+    width: 100%;
+    border: none;
+    &:before {
+      /* Add title for small screen */
+      @include unit-sizes(margin-right, 8);
+      @include font-roboto-condensed;
+      content: attr(data-title) ": ";
+      color: $black-olive;
+    }
+    @include breakpoint($tablet){
+      /* Display table call for bigger screen */
+      display: table-cell;
+      border-top: 1px solid $smoke; 
+      &:before {
+        display: none;
+      }
+    }
+    &--name {
+      @include font-roboto;
+      @include font-size(16);
+      color: $burgundy;
+      @include breakpoint($tablet){
+        width: 35%;
+      }
+      /deep/ {
+        span { 
+          @include font-size(12);
+          color: $gray;
+        } 
+      }
+    }
+  }/* END detail */
+}

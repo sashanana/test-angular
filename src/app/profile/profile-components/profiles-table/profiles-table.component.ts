@@ -20,8 +20,24 @@ export class ProfilesTableComponent implements OnInit {
   /*
    * Get the profile value by key
    */
-  public getProfileDetailByKey(key: string) {
-    return 'value';
+  public getProfileDetailByKey(profile: Profile, key: string): string {
+    let value = '';
+    switch (key) {
+      case 'name':
+        value = profile.profile_title + '<br/><span>' + profile.profile_sub_title + '</span>';
+        break;
+      case 'summary':
+        value = profile.summary;
+        break;
+      case 'nationalities':
+        if (profile.nationalities) {
+          value =
+            profile.nationalities
+            .map((national) => national.country_name)
+            .join(', ');
+        }
+    }
+    return value;
   }
 
 }

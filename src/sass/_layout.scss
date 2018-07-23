@@ -4,8 +4,11 @@ html, body, app-root {
   height: 100%;
 }
 
-main {
+app-root {
   display: flex;
   flex-flow: column;
+}
+
+main {
   flex: 1;
 }
