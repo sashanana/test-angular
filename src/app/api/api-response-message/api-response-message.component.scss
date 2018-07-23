@@ -1,0 +1,12 @@
+@import '~sass/settings';
+
+.api-response-message {
+  text-align: center;
+  padding: 60px 0;
+  &__headline {
+    @include font-size(20);
+    text-transform: uppercase;
+    margin: 68px 0;
+    color: $gray;
+  }
+}

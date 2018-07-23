@@ -1,0 +1,12 @@
+<table class="profiles-table">
+  <thead>
+    <tr>
+      <th *ngFor="let detail of profileDetailsDefination" scope="col">{{detail.title}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let profile of profiles">
+      <td *ngFor="let detail of profileDetailsDefination">{{getProfileDetailByKey(detail.key)}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,3 +1,14 @@
-<p>
-  profile-list-page works!
-</p>
+<div class="profile-list-page">
+
+  <div *ngIf="profiles$ | async as profiles; else loading">
+    <app-profiles-table [profiles]="profiles"></app-profiles-table>
+  </div>
+  
+  <ng-template #loading>
+    <div *ngIf="!isApiError; else error" class="d-flex py-5 justify-content-center">
+      <app-spinner></app-spinner>
+    </div>
+    <ng-template #error><app-api-response-message></app-api-response-message></ng-template>
+  </ng-template>
+  
+</div>
