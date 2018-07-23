@@ -3,7 +3,7 @@ import { Nationality } from './nationality';
 import { Asset } from './asset';
 
 export interface Profile {
-  id: number;
+  id: string;
   summary: string;
   profile_type_key: string;
   profile_type_name: string;

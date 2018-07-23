@@ -1,0 +1,15 @@
+@import '~sass/settings';
+
+.profile-edit-page {
+  button[type=submit] {
+    @include state-button;
+  }
+  &__header {
+    @include card;
+    background-color: $sunflower;
+  }
+  &__asset-button {
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+}

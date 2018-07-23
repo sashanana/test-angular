@@ -6,7 +6,7 @@
       "thumbnail": {
         "author_name": null,
         "file": "profiles/asset/182/hd-gianvito-rossi-portrait-1-(1)-1529136859364036.jpeg",
-        "content_size": "880591",
+        "content_size": 880591,
         "width": 1500,
         "id": 1529136859364036,
         "height": 845
@@ -15,6 +15,16 @@
       "profile_url": "/community/people/gianvito-rossi",
       "last_name": "Rossi",
       "language": "en",
+      "profile_sub_title": "Designer, Gianvito Rossi",
+      "is_enabled": true,
+      "country_code": "it",
+      "profile_title": "Gianvito Rossi",
+      "profile_type_id": 1,
+      "profile_slug": "gianvito-rossi",
+      "id": 182,
+      "country_name": "Italy",
+      "first_name": "Gianvito",
+      "profile_type_name": "Person profile",
       "nationalities": [
         {
           "country_code": "it",
@@ -23,9 +33,6 @@
           "country_id": 107
         }
       ],
-      "profile_sub_title": "Designer, Gianvito Rossi",
-      "is_enabled": true,
-      "country_code": "it",
       "assets": [
         {
           "path": "profiles/asset/182/hd-gianvito-rossi-portrait-1-(1)-1529136859364036.jpeg",
@@ -49,14 +56,7 @@
           "height": 1440,
           "is_thumbnail": false
         }
-      ],
-      "profile_title": "Gianvito Rossi",
-      "profile_type_id": 1,
-      "profile_slug": "gianvito-rossi",
-      "id": 182,
-      "country_name": "Italy",
-      "first_name": "Gianvito",
-      "profile_type_name": "Person profile"
+      ]
     },
     {
       "summary": "The Colombian designer is known for his dynamic, layered tailoring and has been compared to Yves Saint Laurent.",
@@ -120,6 +120,16 @@
       "profile_url": "/community/people/kevin-ma",
       "last_name": "Ma",
       "language": "en",
+      "profile_sub_title": "Founder, hypebeast.com",
+      "is_enabled": true,
+      "country_code": "cn",
+      "profile_title": "Kevin Ma",
+      "profile_type_id": 1,
+      "profile_slug": "kevin-ma",
+      "id": 276,
+      "country_name": "Japan",
+      "first_name": "Kevin",
+      "profile_type_name": "Person profile",
       "nationalities": [
         {
           "country_code": "cn",
@@ -128,9 +138,6 @@
           "country_id": 44
         }
       ],
-      "profile_sub_title": "Founder, hypebeast.com",
-      "is_enabled": true,
-      "country_code": "cn",
       "assets": [
         {
           "path": "profiles/asset/276/kma1000x545-1548076955409003.jpg",
@@ -143,14 +150,7 @@
           "height": 545,
           "is_thumbnail": false
         }
-      ],
-      "profile_title": "Kevin Ma",
-      "profile_type_id": 1,
-      "profile_slug": "kevin-ma",
-      "id": 276,
-      "country_name": "China",
-      "first_name": "Kevin",
-      "profile_type_name": "Person profile"
+      ]
     },
     {
       "summary": "After stints at both mid and high-end retailers like Jimmy Choo and the Gap, he was hired by upmarket store Bergdorf Goodman.",
@@ -1041,9 +1041,7 @@
       "profile_sub_title": "Stylist",
       "is_enabled": true,
       "country_code": "gb",
-      "assets": [
-        
-      ],
+      "assets": [],
       "profile_title": "Panos Yiapanis",
       "profile_type_id": 1,
       "profile_slug": "panos-yiapanis",

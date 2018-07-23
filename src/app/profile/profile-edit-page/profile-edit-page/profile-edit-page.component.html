@@ -1,3 +1,69 @@
-<p>
-  profile-edit-page works!
-</p>
+<div class="profile-edit-page mt-3">
+  <div *ngIf="form; else loading">
+    <div class="profile-edit-page__header my-5 p-3">
+      <h2 class="profile-edit-page__headline">{{profile.profile_title}}</h2>
+      <div class="profile-edit-page__thumbnail">Thumbnail: <span>{{profile.thumbnail.file}}</span></div>
+    </div>
+    <form (ngSubmit)="saveProfile()" [formGroup]="form" class="row mt-3">
+      <div class="form-group col-md-6">
+        <label for="first_name">First name</label>
+        <input type="text" class="form-control" id="first_name" formControlName="first_name">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="last_name">Last name</label>
+        <input type="text" class="form-control" id="last_name" formControlName="last_name">
+      </div>
+      <div class="form-group col-12">
+        <label for="last_name">Subtitle</label>
+        <input type="text" class="form-control" id="last_name" formControlName="profile_sub_title">
+      </div>
+      <div class="form-group col-12">
+        <label for="country">Country</label>
+        <input type="text" class="form-control" id="country" formControlName="country_name">
+      </div>
+      <div class="form-group col-12">
+        <label for="summary">Summary</label>
+        <textarea class="form-control" id="summary" rows="3" formControlName="summary"></textarea>
+      </div>
+      <div class="form-group col-12">
+        <h4>Select asset:</h4>
+        <div class="profile-edit-page__asset-button-group row">
+          <button class="profile-edit-page__asset-button btn btn-outline-dark col-md-3 m-3" 
+                  type="button"
+                  *ngFor="let asset of profile.assets"
+                  (click)="saveToThumbnail(asset)">{{asset.path}}</button>
+        </div>
+      </div>
+      <div class="col-12 d-flex">
+        <div class="form-check mr-3">
+          <input type="checkbox" class="form-check-input" id="enabled" formControlName="is_enabled">
+          <label class="form-check-label" for="enabled">Enabled</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="visible" formControlName="is_visible">
+          <label class="form-check-label" for="visible">Visible</label>
+        </div>
+      </div>
+      <div class="form-group col-12 d-flex justify-content-center mt-5">
+        <button type="submit" 
+                [class.-loading]="isSubmitting"
+                [class.-success]="isSuccess"
+                [disabled]="isSubmitting || isSuccess"
+                class="btn btn-dark">
+          <span *ngIf="!isSubmitting && !isSuccess">Submit</span>
+          <span *ngIf="isSuccess">Success</span>
+          <span *ngIf="isSubmitting">Loading</span>
+        </button>
+      </div>
+    </form>
+    
+  </div>
+  
+  <ng-template #loading>
+    <div *ngIf="!isApiError; else error" class="d-flex py-5 justify-content-center">
+      <app-spinner></app-spinner>
+    </div>
+    <ng-template #error><app-api-response-message></app-api-response-message></ng-template>
+  </ng-template>
+  
+</div>

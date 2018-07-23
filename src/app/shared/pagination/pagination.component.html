@@ -3,7 +3,7 @@
     <li class="page-item" *ngFor="let page of pages">
       <button type="button" 
               class="page-link"
-              [class._active]="page === currentPage"
+              [class.-active]="page === currentPage"
               (click)="onChange(page)">{{page}}</button>
     </li>
   </ul>

@@ -78,7 +78,7 @@ export class ProfileListPageComponent implements OnInit {
     this.refresh$.next();
   }
   public editProfile(id: string): void {
-    this.router.navigate(['/edit',id]);
+    this.router.navigate(['/edit', id]);
   }
   /*** Private ***/
   private handleApiError(): void {
