@@ -1,0 +1,9 @@
+@mixin state-button {
+  &.-loading {
+    
+  }
+  &.-success {
+    background-color: $sunflower;
+    border-color: $sunflower;
+  }
+}
