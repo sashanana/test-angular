@@ -18,10 +18,7 @@ export class ProfileFilterBoxComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    this.form.valueChanges.subscribe(() => {
-      console.log(this.form.value);
-      this.changeEvent.next(this.form.value);
-    });
+    this.form.valueChanges.subscribe(() => this.changeEvent.next(this.form.value));
   }
 
   /*** private ***/
