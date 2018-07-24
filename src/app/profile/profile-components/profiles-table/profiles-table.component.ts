@@ -37,6 +37,9 @@ export class ProfilesTableComponent implements OnInit {
             .map((national) => national.country_name)
             .join(', ');
         }
+        break;
+      case 'country':
+        value = profile.country_name;
     }
     return value;
   }

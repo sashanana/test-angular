@@ -8,7 +8,7 @@ export const ProfileDetailsDefination: {[key: string]: string}[] = [
     title: 'Summary'
   },
   {
-    key: 'nationalities',
-    title: 'Nationalities'
+    key: 'country',
+    title: 'Country'
   }
 ];
