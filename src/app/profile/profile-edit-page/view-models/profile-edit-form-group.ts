@@ -20,12 +20,18 @@ export class ProfileEditFormGroup {
     formGroup.get('first_name').setValidators([Validators.required]);
 
     // Handle nationalities group
+    if (!this.value.nationalities) {
+      this.value.nationalities = [];
+    }
     const nationalitiesGroup = this.value.nationalities.map((national) => {
       return builder.group(national);
     });
     formGroup.setControl('nationalities', builder.array(nationalitiesGroup));
 
     // Handle assets group
+    if (!this.value.assets) {
+      this.value.assets = [];
+    }
     const assetsGroup = this.value.assets.map((asset) => {
       return builder.group(asset);
     });
