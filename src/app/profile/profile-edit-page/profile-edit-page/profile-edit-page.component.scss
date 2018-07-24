@@ -1,6 +1,7 @@
 @import '~sass/settings';
 
 .profile-edit-page {
+  @include app-form;
   button[type=submit] {
     @include state-button;
   }

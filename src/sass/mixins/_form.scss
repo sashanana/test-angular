@@ -1,3 +1,11 @@
 @import 
   './form-mixins/input',
-  './form-mixins/button'
+  './form-mixins/button';
+
+@mixin app-form {
+  .form-group {
+    .form-error-text {
+      @include app-error-text;
+    }
+  }
+}

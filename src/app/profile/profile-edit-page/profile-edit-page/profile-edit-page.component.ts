@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators/catchError';
 import { ProfileService } from '../../profile.service';
 import { Profile, Asset } from '../../models';
-import { ProfileEditFormGroup } from '../view-models';
+import { ProfileEditFormGroup, ProfileEditFormErrorMessage } from '../view-models';
 
 @Component({
   selector: 'app-profile-edit-page',
@@ -14,6 +14,7 @@ import { ProfileEditFormGroup } from '../view-models';
 })
 export class ProfileEditPageComponent implements OnInit {
 
+  public readonly ErrorMessages = ProfileEditFormErrorMessage;
   public profile: Profile;
   public isApiError = false;
   public profileID: string;
@@ -33,6 +34,11 @@ export class ProfileEditPageComponent implements OnInit {
   }
 
   public saveProfile(): void {
+
+    if (!this.form.valid) {
+      return;
+    }
+
     this.isSubmitting = true;
     this.profileService
         .saveProfileToServer(this.profileID, this.form.value)
@@ -69,6 +75,21 @@ export class ProfileEditPageComponent implements OnInit {
         }); // Save only thumbnail
   }
 
+  /*
+   * Get error message
+   */
+  public getErrorMessage(control: FormControl, messages: {[key: string]: string}): string {
+    let result = '';
+    if (control.errors && messages) {
+      for (const errorType in messages) {
+        if (control.errors[errorType]) {
+          result = messages[errorType];
+        }
+      }
+    }
+    return result;
+  }
+  
   /*** Private ***/
   private loadProfile(): void {
     this.profileService

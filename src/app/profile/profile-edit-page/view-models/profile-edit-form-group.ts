@@ -1,5 +1,11 @@
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Profile } from '../../models';
+
+export const ProfileEditFormErrorMessage = {
+  first_name: {
+    required: 'This filed is required.'
+  }
+};
 
 export class ProfileEditFormGroup {
   constructor(
@@ -9,6 +15,9 @@ export class ProfileEditFormGroup {
   public setFromGroup(builder: FormBuilder): any {
     // No validation required at the moment
     const formGroup = builder.group(this.value);
+
+    // Name validation
+    formGroup.get('first_name').setValidators([Validators.required]);
 
     // Handle nationalities group
     const nationalitiesGroup = this.value.nationalities.map((national) => {

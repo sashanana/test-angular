@@ -8,6 +8,9 @@
       <div class="form-group col-md-6">
         <label for="first_name">First name</label>
         <input type="text" class="form-control" id="first_name" formControlName="first_name">
+        <small *ngIf="!form.get('first_name').valid" class="form-text form-error-text">  
+          {{getErrorMessage(form.get('first_name'), ErrorMessages.first_name)}}
+        </small>
       </div>
       <div class="form-group col-md-6">
         <label for="last_name">Last name</label>
@@ -48,7 +51,7 @@
         <button type="submit" 
                 [class.-loading]="isSubmitting"
                 [class.-success]="isSuccess"
-                [disabled]="isSubmitting || isSuccess"
+                [disabled]="isSubmitting || isSuccess || !form.valid"
                 class="btn btn-dark">
           <span *ngIf="!isSubmitting && !isSuccess">Submit</span>
           <span *ngIf="isSuccess">Success</span>
