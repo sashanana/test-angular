@@ -59,7 +59,7 @@ export class ProfileListPageComponent implements OnInit {
    * Get total page size
    */
   public getTotalPageSize(total: number, limit: number): number {
-    return Math.max(Math.floor(total / limit), 1);
+    return Math.max(Math.ceil(total / limit), 1);
   }
   /*
    * Update page and refresh list
@@ -75,6 +75,7 @@ export class ProfileListPageComponent implements OnInit {
     this.requestParams.q = value.search;
     this.requestParams.is_enabled = value.enable;
     this.requestParams.is_visible = value.visible;
+    this.requestParams._page = 1; // Reset page
     this.refresh$.next();
   }
   public editProfile(id: string): void {
